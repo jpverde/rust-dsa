@@ -37,8 +37,8 @@ To get the most out of this repository, you should have a basic understanding of
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/rust-dsa.git
-    cd rust-dsa
+    git clone https://github.com/yourusername/rust-path.git
+    cd rust-path
     ```
 
 2. **Install Rust:**
