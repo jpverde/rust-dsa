@@ -18,7 +18,7 @@ pub fn linked_list() {
     println!("Count: {:?}", traversed);
     println!("{:?}", list);
 
-    list.add_at_position(7, 4);
+    list.insert_at_position(7, 4);
     println!("{:?}", list);
 }
 
@@ -69,7 +69,7 @@ impl<T: Clone> SingleLinkedList<T> {
         self.length += 1;
     }
 
-    fn add_at_position(&mut self, elem: T, position: usize) {
+    fn insert_at_position(&mut self, elem: T, position: usize) {
         if self.length == 0 {
             self.front = Some(Box::new(Link::new(elem, None)));
             return;
