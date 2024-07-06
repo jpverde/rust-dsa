@@ -3,14 +3,14 @@ use core::fmt;
 mod data_structures;
 
 fn main() {
-    data_structures::array::array();
-    print_line_separator();
-    towers_of_hanoi(3, 'A', 'C', 'B');
+    //data_structures::array::array();
+    //print_line_separator();
+    //towers_of_hanoi(3, 'A', 'C', 'B');
     data_structures::single_linked_list::linked_list();
     print_line_separator();
-    let point = Point::new(3.46, 5.67);
-    let point_str = Point::new("some", "text");
-    println!("Point: {} {}", point_str, point.get_x());
+    //let point = Point::new(3.46, 5.67);
+    //let point_str = Point::new("some", "text");
+    //println!("Point: {} {}", point_str, point.get_x());
     //println!("Point: {} {}", new_val, new_val.get_x());
     println!("Hello, world!");
 }

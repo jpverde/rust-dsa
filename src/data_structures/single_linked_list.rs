@@ -20,6 +20,13 @@ pub fn linked_list() {
 
     list.insert_at_position(7, 4);
     println!("{:?}", list);
+    list.delete_head();
+    println!("{:?}", list);
+    list.delete_tail();
+    println!("{:?}", list);
+
+    list.delete_at_position(3);
+    println!("{:?}", list);
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -91,6 +98,53 @@ impl<T: Clone> SingleLinkedList<T> {
             current.as_mut().unwrap().next = Some(Box::new(Link::new(elem, None)))
         }
         self.length += 1;
+    }
+
+    fn delete_head(&mut self) {
+        if self.length == 0 {
+            return;
+        }
+        self.front = self.front.as_mut().unwrap().next.clone();
+        self.length -= 1;
+    }
+
+    fn delete_tail(&mut self) {
+        if self.length == 0 {
+            return;
+        }
+        let mut current = &mut self.front;
+        let mut count = 1;
+        while current.is_some()
+            && current.as_ref().unwrap().next.is_some()
+            && count < self.length - 1
+        {
+            current = &mut current.as_mut().unwrap().next;
+            count += 1;
+        }
+        current.as_mut().unwrap().next = None;
+        self.length -= 1;
+    }
+
+    fn delete_at_position(&mut self, position: usize) {
+        if self.length == 0 {
+            return;
+        }
+        let mut current = &mut self.front;
+        let mut count = 1;
+        while current.is_some() && current.as_ref().unwrap().next.is_some() && count < position - 1
+        {
+            current = &mut current.as_mut().unwrap().next;
+            count += 1;
+        }
+        current.as_mut().unwrap().next = current
+            .as_mut()
+            .unwrap()
+            .next
+            .as_mut()
+            .unwrap()
+            .next
+            .clone();
+        self.length -= 1;
     }
 }
 
