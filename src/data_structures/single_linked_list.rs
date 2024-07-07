@@ -54,7 +54,6 @@ impl<T: Clone> SingleLinkedList<T> {
     }
 
     fn prepend(&mut self, elem: T) {
-        //let current = ;
         if self.length == 0 {
             self.front = Some(Box::new(Link::new(elem, None)));
         } else {
@@ -77,10 +76,6 @@ impl<T: Clone> SingleLinkedList<T> {
     }
 
     fn insert_at_position(&mut self, elem: T, position: usize) {
-        if self.length == 0 {
-            self.front = Some(Box::new(Link::new(elem, None)));
-            return;
-        }
         let mut current = &mut self.front;
         let mut count: usize = 1;
         while current.is_some() && current.as_ref().unwrap().next.is_some() && count < position - 1
@@ -88,8 +83,9 @@ impl<T: Clone> SingleLinkedList<T> {
             current = &mut current.as_mut().unwrap().next;
             count += 1;
         }
-
-        if current.as_ref().unwrap().next.is_some() {
+        if self.length == 0 {
+            self.front = Some(Box::new(Link::new(elem, None)));
+        } else if current.as_ref().unwrap().next.is_some() {
             current.as_mut().unwrap().next = Some(Box::new(Link::new(
                 elem,
                 current.as_mut().unwrap().next.clone(),
