@@ -6,7 +6,7 @@ fn main() {
     data_structures::array::array();
     print_line_separator();
     towers_of_hanoi(3, 'A', 'C', 'B');
-    data_structures::single_linked_list::linked_list();
+    data_structures::linked_list::linked_list();
     print_line_separator();
     let mut point = Point::new(3.46, 5.67);
     let point_str = Point::new("some", "text");

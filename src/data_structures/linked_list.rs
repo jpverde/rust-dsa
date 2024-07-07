@@ -1,5 +1,5 @@
 pub fn linked_list() {
-    let mut list: SingleLinkedList<u8> = SingleLinkedList::new();
+    let mut list: LinkedList<u8> = LinkedList::new();
     println!("{:?}", list);
     list.append(2);
     println!("{:?}", list);
@@ -30,7 +30,7 @@ pub fn linked_list() {
 }
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct SingleLinkedList<T> {
+pub struct LinkedList<T> {
     pub front: Option<Box<Link<T>>>,
     length: usize,
 }
@@ -41,9 +41,9 @@ pub struct Link<T> {
     next: Option<Box<Link<T>>>,
 }
 
-impl<T: Clone> SingleLinkedList<T> {
-    fn new() -> SingleLinkedList<T> {
-        SingleLinkedList {
+impl<T: Clone> LinkedList<T> {
+    fn new() -> LinkedList<T> {
+        LinkedList {
             front: None,
             length: 0,
         }
@@ -159,7 +159,7 @@ where
     }
 }
 
-impl<T> std::fmt::Display for SingleLinkedList<T>
+impl<T> std::fmt::Display for LinkedList<T>
 where
     T: std::fmt::Display,
 {
